@@ -16,12 +16,54 @@
     </ion-item>
     <ion-item>
       <ion-label>Categoría</ion-label>
-      <ion-select>
-        <ion-select-option value="Tecnología">Tecnología</ion-select-option>
-        <ion-select-option value="Hogar">Hogar</ion-select-option>
-        <ion-select-option value="Inmobilidaria">Inmobiliaria</ion-select-option>
-        <ion-select-option value="Motor">Motor</ion-select-option>
+      <ion-select #V (ionChange)="cambiarCategoria(V.value)">
+        <ion-select-option value="tecnologia">Tecnología</ion-select-option>
+        <ion-select-option value="hogar">Hogar</ion-select-option>
+        <ion-select-option value="inmobiliaria">Inmobiliaria</ion-select-option>
+        <ion-select-option value="motor">Motor</ion-select-option>
       </ion-select>
     </ion-item>
+
+    <div *ngIf="categoria == 'motor'">
+      <ion-item>
+        <ion-label>Tipo de vehículo</ion-label>
+        <ion-select>
+          <ion-select-option value="coche">Coche</ion-select-option>
+          <ion-select-option value="moto">Moto</ion-select-option>
+        </ion-select>
+
+        <ion-item>
+          <ion-input placeholder="Escribir aquí">KM: &nbsp;</ion-input>
+        </ion-item>
+      </ion-item>
+    </div>
+
+    <div *ngIf="categoria == 'inmobiliaria'">
+      <ion-item>
+        <ion-input placeholder="Metros de la vivienda">Metros: &nbsp;</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input min="1" type="number" placeholder="Número de habitaciones">Número de habitaciones: &nbsp;</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input min="1" type="number" placeholder="Número de baños">Número de baños: &nbsp;</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="Escribir aquí">Localidad: &nbsp;</ion-input>
+      </ion-item>
+    </div>
+
+    <div *ngIf="categoria == 'tecnologia'">
+      <ion-item>
+        <ion-label>Estado: </ion-label>
+        <ion-select>
+          <ion-select-option>Perfecto estado</ion-select-option>
+          <ion-select-option>Usado</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
   </div>
 </ion-content>

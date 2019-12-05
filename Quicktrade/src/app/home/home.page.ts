@@ -9,4 +9,10 @@ export class HomePage {
 
   constructor() {}
 
+  categoria : string = "";
+
+  cambiarCategoria(categoria){
+    this.categoria = categoria;
+  }
+
 }
