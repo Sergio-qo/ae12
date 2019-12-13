@@ -9,10 +9,10 @@
 <ion-content>
   <div class="ion-padding">
     <ion-item>
-      <ion-input placeholder="Escribir aquí">Nombre: &nbsp;</ion-input>
+      <ion-input [(ngModel)]="nombre" placeholder="Escribir aquí">Nombre: &nbsp;</ion-input>
     </ion-item>
     <ion-item>
-      <ion-textarea placeholder="Escribir aquí">Descripción:</ion-textarea>
+      <ion-textarea [(ngModel)]="descripcion" placeholder="Escribir aquí">Descripción:</ion-textarea>
     </ion-item>
     <ion-item>
       <ion-label>Categoría</ion-label>
@@ -27,39 +27,39 @@
     <div *ngIf="categoria == 'motor'">
       <ion-item>
         <ion-label>Tipo de vehículo</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="tipov">
           <ion-select-option value="coche">Coche</ion-select-option>
           <ion-select-option value="moto">Moto</ion-select-option>
         </ion-select>
 
         <ion-item>
-          <ion-input placeholder="Escribir aquí">KM: &nbsp;</ion-input>
+          <ion-input [(ngModel)]="km" placeholder="Escribir aquí">KM: &nbsp;</ion-input>
         </ion-item>
       </ion-item>
     </div>
 
     <div *ngIf="categoria == 'inmobiliaria'">
       <ion-item>
-        <ion-input placeholder="Metros de la vivienda">Metros: &nbsp;</ion-input>
+        <ion-input [(ngModel)]="metros" placeholder="Metros de la vivienda">Metros: &nbsp;</ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input min="1" type="number" placeholder="Número de habitaciones">Número de habitaciones: &nbsp;</ion-input>
+        <ion-input [(ngModel)]="numhab" min="1" type="number" placeholder="Número de habitaciones">Número de habitaciones: &nbsp;</ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input min="1" type="number" placeholder="Número de baños">Número de baños: &nbsp;</ion-input>
+        <ion-input [(ngModel)]="numba" min="1" type="number" placeholder="Número de baños">Número de baños: &nbsp;</ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input placeholder="Escribir aquí">Localidad: &nbsp;</ion-input>
+        <ion-input [(ngModel)]="localidad" placeholder="Escribir aquí">Localidad: &nbsp;</ion-input>
       </ion-item>
     </div>
 
     <div *ngIf="categoria == 'tecnologia'">
       <ion-item>
         <ion-label>Estado: </ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="estado">
           <ion-select-option>Perfecto estado</ion-select-option>
           <ion-select-option>Usado</ion-select-option>
         </ion-select>
@@ -68,5 +68,6 @@
 
     <ion-input [placeholder]="categoria"></ion-input>
     <ion-text>{{categoria}}</ion-text>
+    <ion-button>añadir</ion-button>
   </div>
 </ion-content>
