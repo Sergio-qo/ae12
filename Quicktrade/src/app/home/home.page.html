@@ -24,6 +24,10 @@
       </ion-select>
     </ion-item>
 
+    <ion-item>
+      <ion-input [(ngModel)]="precio" placeholder="Escribir aquí">Precio: &nbsp;</ion-input>
+    </ion-item>
+
     <div *ngIf="categoria == 'motor'">
       <ion-item>
         <ion-label>Tipo de vehículo</ion-label>
@@ -68,6 +72,14 @@
 
     <ion-input [placeholder]="categoria"></ion-input>
     <ion-text>{{categoria}}</ion-text>
-    <ion-button>añadir</ion-button>
+    <p></p>
+    <ion-button (click)="insertar()">añadir</ion-button>
+
+    <div *ngFor="let item of productos">
+      <ion-text>Nombre: {{item.nombre}} </ion-text>
+      <ion-text>Precio: {{item.precio}}</ion-text>
+    </div>
+
+
   </div>
 </ion-content>
