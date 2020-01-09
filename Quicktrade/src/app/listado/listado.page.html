@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let item of productos">
+    <ion-text>Nombre: {{item.nombre}} </ion-text>
+    <ion-text>Precio: {{item.precio}}</ion-text>
+    <ion-button [routerLink]="['/detalles', item.id]">Detalles</ion-button>
+  </div>
+</ion-content>

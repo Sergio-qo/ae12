@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>insertar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input [(ngModel)]="nombre" placeholder="Escribir aquí">Nombre: &nbsp;</ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea [(ngModel)]="descripcion" placeholder="Escribir aquí">Descripción:</ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>Categoría</ion-label>
+    <ion-select #V (ionChange)="cambiarCategoria(V.value)">
+      <ion-select-option value="tecnologia">Tecnología</ion-select-option>
+      <ion-select-option value="hogar">Hogar</ion-select-option>
+      <ion-select-option value="inmobiliaria">Inmobiliaria</ion-select-option>
+      <ion-select-option value="motor">Motor</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="precio" placeholder="Escribir aquí">Precio: &nbsp;</ion-input>
+  </ion-item>
+
+  <div *ngIf="categoria == 'motor'">
+    <ion-item>
+      <ion-label>Tipo de vehículo</ion-label>
+      <ion-select [(ngModel)]="tipov">
+        <ion-select-option value="coche">Coche</ion-select-option>
+        <ion-select-option value="moto">Moto</ion-select-option>
+      </ion-select>
+
+      <ion-item>
+        <ion-input [(ngModel)]="km" placeholder="Escribir aquí">KM: &nbsp;</ion-input>
+      </ion-item>
+    </ion-item>
+  </div>
+
+  <div *ngIf="categoria == 'inmobiliaria'">
+    <ion-item>
+      <ion-input [(ngModel)]="metros" placeholder="Metros de la vivienda">Metros: &nbsp;</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="numhab" min="1" type="number" placeholder="Número de habitaciones">Número de habitaciones: &nbsp;</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="numba" min="1" type="number" placeholder="Número de baños">Número de baños: &nbsp;</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="localidad" placeholder="Escribir aquí">Localidad: &nbsp;</ion-input>
+    </ion-item>
+  </div>
+
+  <div *ngIf="categoria == 'tecnologia'">
+    <ion-item>
+      <ion-label>Estado: </ion-label>
+      <ion-select [(ngModel)]="estado">
+        <ion-select-option>Perfecto estado</ion-select-option>
+        <ion-select-option>Usado</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <ion-input [placeholder]="categoria"></ion-input>
+  <ion-text>{{categoria}}</ion-text>
+  <p></p>
+  <ion-button (click)="insertar()">añadir</ion-button>
+</ion-content>
