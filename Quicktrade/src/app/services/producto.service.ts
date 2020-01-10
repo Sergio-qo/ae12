@@ -50,7 +50,12 @@ export class ProductoService{
     constructor(private _db:AngularFireDatabase){}
 
     setProducto(producto:(ITecnologia | IInmobiliaria | IHogar | IMotor)){
-        this._db.database.ref("productos");
-        this._db.database.ref.push(producto);
+        let ref = this._db.database.ref("productos");
+        ref.push(producto);
+    }
+
+    getProductos(){
+        let ref = this._db.database.ref("productos");
+        return ref;
     }
 }
