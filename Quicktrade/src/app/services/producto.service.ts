@@ -4,6 +4,7 @@ import { IInmobiliaria } from '../interfaces';
 import { IHogar } from '../interfaces';
 import { IMotor } from '../interfaces';
 import { IProducto } from '../interfaces';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable()
 
@@ -11,7 +12,7 @@ import { IProducto } from '../interfaces';
 
 export class ProductoService{
 
-    productos: (ITecnologia | IInmobiliaria | IHogar | IMotor)[] = [
+    /*productos: (ITecnologia | IInmobiliaria | IHogar | IMotor)[] = [
         {
           "id" : 1,
         "nombre" : "casa1",
@@ -44,5 +45,12 @@ export class ProductoService{
             }
         });
         return producto;
+    }*/
+
+    constructor(private _db:AngularFireDatabase){}
+
+    setProducto(producto:(ITecnologia | IInmobiliaria | IHogar | IMotor)){
+        this._db.database.ref("productos");
+        this._db.database.ref.push(producto);
     }
 }

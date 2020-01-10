@@ -19,7 +19,7 @@ export class ListadoPage implements OnInit {
   constructor(private _productoService : ProductoService) { }
 
   ngOnInit() {
-    this.productos = this._productoService.getProductos();
+    //this.productos = this._productoService.getProductos();
   }
 
 }
