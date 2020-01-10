@@ -34,9 +34,9 @@ export class ProductoService{
         return this.productos;
     }
 
-    getProductoById(id):(ITecnologia | IInmobiliaria | IHogar | IMotor)[] {
+    getProductoById(id):(ITecnologia | IInmobiliaria | IHogar | IMotor) {
         
-        let producto = null;
+        let producto:(ITecnologia | IInmobiliaria | IHogar | IMotor) = null;
         
         this.productos.forEach(element => {
             if(element.id == id){
