@@ -14,7 +14,7 @@ import { IProducto } from '../interfaces';
 })
 export class ListadoPage implements OnInit {
 
-  productos:(ITecnologia | IInmobiliaria | IHogar | IMotor)[];
+  productos:(ITecnologia | IInmobiliaria | IHogar | IMotor)[] = [];
 
   constructor(private _productoService : ProductoService) { }
 

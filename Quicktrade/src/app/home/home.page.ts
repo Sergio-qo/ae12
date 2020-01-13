@@ -13,7 +13,7 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 })
 export class HomePage {
 
-  nombre: string = "";
+  /*nombre: string = "";
   descripcion: string = "";
   categoria: string = "";
   estado: string = "";
@@ -106,6 +106,6 @@ export class HomePage {
       });
     }
     this.presentToast();
-  }
+  }*/
 
 }
