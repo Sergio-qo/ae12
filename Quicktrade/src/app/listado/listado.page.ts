@@ -23,8 +23,9 @@ export class ListadoPage implements OnInit {
     let ref = this._productoService.getProductos();
     ref.once("value", snapshot=>{
       snapshot.forEach(child => {
-        console.log(child.val());
+        //console.log(child.val());
         this.productos.push(child.val());
+        this.productos[this.productos.length - 1].key = child.key;
     });
   });
 }

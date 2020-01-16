@@ -58,4 +58,9 @@ export class ProductoService{
         let ref = this._db.database.ref("productos");
         return ref;
     }
+
+    getProducto(key){
+        let ref = this._db.database.ref("productos/" + key);
+        return ref;
+    }
 }

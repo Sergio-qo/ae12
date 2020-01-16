@@ -16,13 +16,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetallesPage implements OnInit {
 
-  producto:(ITecnologia | IInmobiliaria | IHogar | IMotor);
+  producto: (ITecnologia | IInmobiliaria | IHogar | IMotor);
+  key: string = "";
 
-  constructor(private _productoService : ProductoService, private _activatedRoute:ActivatedRoute) { }
+  constructor(private _productoService: ProductoService, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    let id = +this._activatedRoute.snapshot.paramMap.get('id');
+    this.key = this._activatedRoute.snapshot.paramMap.get('key');
     //this.producto = this._productoService.getProductoById(id);
+    let ref = this._productoService.getProducto(this.key);
+
+    ref.once("value", snapshot=>{
+
+        //console.log(child.val());
+        snapshot.forEach(child => {
+          console.log(child.key+":"+child.val());
+        });
+
+
+  });
+
+    console.log(this.producto);
   }
 
 }
