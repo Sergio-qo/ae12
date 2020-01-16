@@ -29,9 +29,7 @@ export class DetallesPage implements OnInit {
     ref.once("value", snapshot=>{
 
         //console.log(child.val());
-        snapshot.forEach(child => {
-          console.log(child.key+":"+child.val());
-        });
+        this.producto = snapshot;
 
 
   });
