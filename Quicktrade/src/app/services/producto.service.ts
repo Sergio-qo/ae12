@@ -59,6 +59,7 @@ export class ProductoService{
         return ref;
     }
 
+    //Funcion getProducto en producto.service.ts
     getProducto(key){
         let ref = this._db.database.ref("productos/" + key);
         return ref;

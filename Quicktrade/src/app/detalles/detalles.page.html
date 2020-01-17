@@ -7,49 +7,53 @@
 <ion-content>
   <ion-text>{{key}}</ion-text>
 
-  <!--<div *ngIf="producto.categoria == 'hogar'">
-    <ion-text>{{producto.nombre}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.descripcion}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.precio}}</ion-text>
-  </div>
 
-  <div *ngIf="producto.categoria == 'tecnologia'">
-    <ion-text>{{producto.nombre}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.descripcion}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.estado}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.precio}}</ion-text>
-  </div>
+  <div *ngIf="producto != undefined">
 
-  <div *ngIf="producto.categoria == 'inmobiliaria'">
-    <ion-text>{{producto.nombre}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.descripcion}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.metros}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.numhab}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.numba}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.localidad}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.precio}}</ion-text>
-  </div>
+    <div *ngIf="producto.categoria == 'hogar'">
+      <ion-text>Nombre: {{producto.nombre}}</ion-text>
+      <p></p>
+      <ion-text>Descripcion: {{producto.descripcion}}</ion-text>
+      <p></p>
+      <ion-text>Precio: {{producto.precio}}</ion-text>
+    </div>
 
-  <div *ngIf="producto.categoria == 'inmobiliaria'">
-    <ion-text>{{producto.nombre}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.descripcion}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.tipov}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.km}}</ion-text>
-    <p></p>
-    <ion-text>{{producto.precio}}</ion-text>
-  </div>-->
+    <div *ngIf="producto.categoria == 'tecnologia'">
+      <ion-text>Nombre: {{producto.nombre}}</ion-text>
+      <p></p>
+      <ion-text>Descripcion: {{producto.descripcion}}</ion-text>
+      <p></p>
+      <ion-text>{{producto.estado}}</ion-text>
+      <p></p>
+      <ion-text>Precio: {{producto.precio}}</ion-text>
+    </div>
+
+    <div *ngIf="producto.categoria == 'inmobiliaria'">
+      <ion-text>Nombre: {{producto.nombre}}</ion-text>
+      <p></p>
+      <ion-text>Descripcion: {{producto.descripcion}}</ion-text>
+      <p></p>
+      <ion-text>Metros: {{producto.metros}}</ion-text>
+      <p></p>
+      <ion-text>Número de habitaciones: {{producto.numhab}}</ion-text>
+      <p></p>
+      <ion-text>Número de baños: {{producto.numba}}</ion-text>
+      <p></p>
+      <ion-text>Localidad: {{producto.localidad}}</ion-text>
+      <p></p>
+      <ion-text>Precio: {{producto.precio}}</ion-text>
+    </div>
+
+    <div *ngIf="producto.categoria == 'inmobiliaria'">
+      <ion-text>Nombre: {{producto.nombre}}</ion-text>
+      <p></p>
+      <ion-text>Descripcion: {{producto.descripcion}}</ion-text>
+      <p></p>
+      <ion-text>Tipo de vehículo: {{producto.tipov}}</ion-text>
+      <p></p>
+      <ion-text>KM: {{producto.km}}</ion-text>
+      <p></p>
+      <ion-text>Precio: {{producto.precio}}</ion-text>
+    </div>
+  </div>
 </ion-content>

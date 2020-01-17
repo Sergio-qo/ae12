@@ -14,8 +14,9 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './detalles.page.html',
   styleUrls: ['./detalles.page.scss'],
 })
-export class DetallesPage implements OnInit {
 
+export class DetallesPage implements OnInit {
+//Asignacion de producto
   producto: (ITecnologia | IInmobiliaria | IHogar | IMotor);
   key: string = "";
 
@@ -43,10 +44,13 @@ export class DetallesPage implements OnInit {
     });*/
 
     ref.once("value", snapshot=>{
+      //Si hago el console.log aqui se ve
+      //console.log(snapshot.val());
+      //Aqui lo asigno
       this.producto = snapshot.val();
   });
-
-    console.log(this.producto);
+    //Y esto no se ve
+    //console.log(this.producto.precio);
   }
 
 }
