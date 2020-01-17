@@ -1,5 +1,5 @@
 export interface IProducto{
-    "key":string,
+    //"key":string,
     "nombre" : string,
     "descripcion" : string,
     "categoria" : string,

@@ -26,7 +26,7 @@ export class DetallesPage implements OnInit {
     //this.producto = this._productoService.getProductoById(id);
     let ref = this._productoService.getProducto(this.key);
 
-    ref.once("value", snapshot => {
+    /*ref.once("value", snapshot => {
       let nombre = snapshot.child("nombre").val();
       let descripcion = snapshot.child("descripcion").val();
       let estado = snapshot.child("estado").val();
@@ -40,14 +40,11 @@ export class DetallesPage implements OnInit {
         categoria: categoria,
         precio: precio
       }
-    });
+    });*/
 
-    /*ref.once("value", snapshot=>{
-      snapshot.forEach(child => {
-        //console.log(child.val());
-        this.producto.nombre = child.val();
-    });
-  });*/
+    ref.once("value", snapshot=>{
+      this.producto = snapshot.val();
+  });
 
     console.log(this.producto);
   }
