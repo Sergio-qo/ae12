@@ -1,9 +1,13 @@
 export interface IProducto{
-    "key":string,
+    //"key":string,
     "nombre" : string,
     "descripcion" : string,
     "categoria" : string,
     "precio" : number
+}
+
+export interface IKey extends IProducto{
+    "key" : string
 }
 
 export interface ITecnologia extends IProducto{

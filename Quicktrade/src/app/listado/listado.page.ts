@@ -5,6 +5,7 @@ import { ITecnologia } from '../interfaces';
 import { IInmobiliaria } from '../interfaces';
 import { IHogar } from '../interfaces';
 import { IMotor } from '../interfaces';
+import { IKey } from '../interfaces';
 import { IProducto } from '../interfaces';
 
 @Component({
@@ -14,7 +15,7 @@ import { IProducto } from '../interfaces';
 })
 export class ListadoPage implements OnInit {
 
-  productos:(ITecnologia | IInmobiliaria | IHogar | IMotor)[] = [];
+  productos:(ITecnologia & IInmobiliaria & IHogar & IMotor & IKey)[] = [];
 
   constructor(private _productoService : ProductoService) { }
 
