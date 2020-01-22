@@ -1,3 +1,8 @@
+export interface IUsuario{
+    "nombre":string,
+    "id":string
+}
+
 export interface IProducto{
     //"key":string,
     "nombre" : string,

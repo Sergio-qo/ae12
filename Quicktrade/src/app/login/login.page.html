@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-input [(ngModel)]="nomusu" placeholder="Nombre"></ion-input>
+ <ion-input placeholder="Contraseña"></ion-input>
+ <ion-button [routerLink]="['/inicio', nomusu]">Login</ion-button>
+</ion-content>
