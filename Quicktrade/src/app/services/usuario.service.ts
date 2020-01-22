@@ -11,6 +11,8 @@ export class UsuarioService{
     getIdUsuByNom(nomusu){
         let ref = this._db.database.ref("usuarios");
         ref.orderByChild("nombre").equalTo(nomusu);
-        //return ref;
+        ref.once("value", snapshot=>{
+            return snapshot.key;
+        });
     }
 }

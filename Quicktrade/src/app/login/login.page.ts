@@ -8,10 +8,11 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class LoginPage implements OnInit {
   nomusu:string;
+  id:string;
   constructor(private _usuarioService : UsuarioService) { }
 
   login(){
-    
+    this.id = this._usuarioService.getIdUsuByNom(this.nomusu);
   }
 
   ngOnInit() {
