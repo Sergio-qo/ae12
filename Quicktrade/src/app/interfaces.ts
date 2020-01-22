@@ -8,7 +8,8 @@ export interface IProducto{
     "nombre" : string,
     "descripcion" : string,
     "categoria" : string,
-    "precio" : number
+    "precio" : number,
+    "uid" : string //añadido
 }
 
 export interface IKey extends IProducto{

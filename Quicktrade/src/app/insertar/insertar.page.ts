@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { ProductoService } from '../services/producto.service';
 
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-insertar',
   templateUrl: './insertar.page.html',
@@ -21,7 +23,7 @@ export class InsertarPage implements OnInit {
   km: number;
   precio: number;
 
-  constructor(private _productoService:ProductoService) {  }
+  constructor(private _activatedRoute: ActivatedRoute, private _productoService:ProductoService) {  }
 
   ngOnInit() {
   }
@@ -36,7 +38,8 @@ export class InsertarPage implements OnInit {
         "nombre": this.nombre,
         "descripcion": this.descripcion,
         "categoria": this.categoria,
-        "precio": this.precio
+        "precio": this.precio,
+        "uid":this._activatedRoute.snapshot.paramMap.get('id')
       });
     }
 
@@ -46,7 +49,8 @@ export class InsertarPage implements OnInit {
         "descripcion": this.descripcion,
         "categoria": this.categoria,
         "precio": this.precio,
-        "estado": this.estado
+        "estado": this.estado,
+        "uid":this._activatedRoute.snapshot.paramMap.get('id')
       });
     }
 
@@ -59,7 +63,8 @@ export class InsertarPage implements OnInit {
         "metros": this.metros,
         "numhab" : this.numhab,
         "numba" : this.numba,
-        "localidad" : this.localidad
+        "localidad" : this.localidad,
+        "uid":this._activatedRoute.snapshot.paramMap.get('id')
       });
     }
 
@@ -70,7 +75,8 @@ export class InsertarPage implements OnInit {
         "categoria": this.categoria,
         "precio": this.precio,
         "tipov":this.tipov,
-        "km":this.km
+        "km":this.km,
+        "uid":this._activatedRoute.snapshot.paramMap.get('id')
       });
     }
   }
