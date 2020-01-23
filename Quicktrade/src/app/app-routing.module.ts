@@ -25,9 +25,14 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'misproductos/:id',
+    path: 'misproductos/:uid',
     loadChildren: () => import('./misproductos/misproductos.module').then( m => m.MisproductosPageModule)
   },
+  {
+    path: 'modificar/:key',
+    loadChildren: () => import('./modificar/modificar.module').then( m => m.ModificarPageModule)
+  },
+
 ];
 
 @NgModule({

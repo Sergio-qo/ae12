@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content>
+    <ion-select placeholder="Categoría" #V (ionChange)="cambiarCategoria(V.value)">
+      <ion-select-option value="tecnologia">Tecnología</ion-select-option>
+      <ion-select-option value="hogar">Hogar</ion-select-option>
+      <ion-select-option value="inmobiliaria">Inmobiliaria</ion-select-option>
+      <ion-select-option value="motor">Motor</ion-select-option>
+    </ion-select>
 
+  <div *ngFor="let item of productos">
+    <div *ngIf="item.categoria == categoria">
+      <ion-text>Nombre: {{item.nombre}} </ion-text>
+      <ion-text>Precio: {{item.precio}}</ion-text>
+      <ion-button (click)="eliminar(item.key)">Eliminar</ion-button>
+      <ion-button [routerLink]="['/modificar', item.key]">Modificar</ion-button>
+    </div>
+  </div>
 </ion-content>
