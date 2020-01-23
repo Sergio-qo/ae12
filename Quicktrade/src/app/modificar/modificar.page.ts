@@ -10,41 +10,56 @@ import { ProductoService } from '../services/producto.service';
 })
 export class ModificarPage implements OnInit {
 
-  key:string;
-  producto: (ITecnologia | IInmobiliaria | IHogar | IMotor);
-  nombre:string;
-  descripcion:string;
-  precio:number;
-  estado:string;
-  metros:string;
-  numhab:string;
-  numba:string;
-  localidad:string;
-  tipov:string;
-  km:string;
+  key: string;
+  producto: (ITecnologia & IInmobiliaria & IHogar & IMotor) = { "nombre": "", "descripcion": "", "precio": 0, "estado": "", "metros": 0, "numhab": 0, "numba": 0, "localidad": "", "tipov": "", "km": 0 };
 
-  constructor(private _activatedRoute:ActivatedRoute, private _productoService:ProductoService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _productoService: ProductoService) { }
 
-  modificar(){
+  modificar() {
     let ref = this._productoService.getProducto(this.key);
-    ref.child("nombre").set(this.nombre);
-    ref.child("descripcion").set(this.descripcion);
-    ref.child("precio").set(this.precio);
-    ref.child("estado").set(this.estado);
-    ref.child("metros").set(this.metros);
-    ref.child("numhab").set(this.numhab);
-    ref.child("numba").set(this.numba);
-    ref.child("localidad").set(this.localidad);
-    ref.child("tipov").set(this.tipov);
-    ref.child("km").set(this.km);
+
+    ref.once("value", snapshot => {
+      if (snapshot.child("categoria").val() == "hogar") {
+        ref.child("nombre").set(this.producto.nombre);
+        ref.child("descripcion").set(this.producto.descripcion);
+        ref.child("precio").set(this.producto.precio);
+      }
+
+      if (snapshot.child("categoria").val() == "tecnologia") {
+        ref.child("nombre").set(this.producto.nombre);
+        ref.child("descripcion").set(this.producto.descripcion);
+        ref.child("precio").set(this.producto.precio);
+        ref.child("estado").set(this.producto.estado);
+      }
+
+      if (snapshot.child("categoria").val() == "inmobiliaria") {
+        ref.child("nombre").set(this.producto.nombre);
+        ref.child("descripcion").set(this.producto.descripcion);
+        ref.child("precio").set(this.producto.precio);
+        ref.child("metros").set(this.producto.metros);
+        ref.child("numhab").set(this.producto.numhab);
+        ref.child("numba").set(this.producto.numba);
+        ref.child("localidad").set(this.producto.localidad);
+      }
+
+      if (snapshot.child("categoria").val() == "motor") {
+        ref.child("nombre").set(this.producto.nombre);
+        ref.child("descripcion").set(this.producto.descripcion);
+        ref.child("precio").set(this.producto.precio);
+        ref.child("tipov").set(this.producto.tipov);
+        ref.child("km").set(this.producto.km);
+      }
+    }
+
+    );
   }
 
   ngOnInit() {
     this.key = this._activatedRoute.snapshot.paramMap.get("key");
     let ref = this._productoService.getProducto(this.key);
-    ref.once("value", snapshot=>{
+    ref.once("value", snapshot => {
       this.producto = snapshot.val();
-  });
+    });
   }
 
 }
