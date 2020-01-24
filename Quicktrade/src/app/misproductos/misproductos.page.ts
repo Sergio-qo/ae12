@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../services/producto.service';
 import { ActivatedRoute } from '@angular/router';
 import { ITecnologia, IInmobiliaria, IHogar, IMotor, IKey } from '../interfaces';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-misproductos',
@@ -14,7 +15,7 @@ export class MisproductosPage implements OnInit {
   categoria:string;
   uid:string;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _productoService: ProductoService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _productoService: ProductoService, private AFauth:AngularFireAuth) { }
 
   eliminar(key){
     let ref = this._productoService.getProducto(key);
@@ -26,7 +27,7 @@ export class MisproductosPage implements OnInit {
   }
 
   ngOnInit() {
-    this.uid = this._activatedRoute.snapshot.paramMap.get("uid");
+    this.uid = this.AFauth.auth.currentUser.uid;
     let ref = this._productoService.getProductos();
     ref.orderByChild("uid").equalTo(this.uid).once("value", snapshot => {
       snapshot.forEach(child => {

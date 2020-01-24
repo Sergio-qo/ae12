@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ProductoService } from '../services/producto.service';
 
-import { ActivatedRoute } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-insertar',
@@ -23,7 +23,7 @@ export class InsertarPage implements OnInit {
   km: number;
   precio: number;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _productoService:ProductoService) {  }
+  constructor(private _productoService:ProductoService, private AFauth:AngularFireAuth) {  }
 
   ngOnInit() {
   }
@@ -39,7 +39,7 @@ export class InsertarPage implements OnInit {
         "descripcion": this.descripcion,
         "categoria": this.categoria,
         "precio": this.precio,
-        "uid":this._activatedRoute.snapshot.paramMap.get('id')
+        "uid":this.AFauth.auth.currentUser.uid
       });
     }
 
@@ -50,7 +50,7 @@ export class InsertarPage implements OnInit {
         "categoria": this.categoria,
         "precio": this.precio,
         "estado": this.estado,
-        "uid":this._activatedRoute.snapshot.paramMap.get('id')
+        "uid":this.AFauth.auth.currentUser.uid
       });
     }
 
@@ -64,7 +64,7 @@ export class InsertarPage implements OnInit {
         "numhab" : this.numhab,
         "numba" : this.numba,
         "localidad" : this.localidad,
-        "uid":this._activatedRoute.snapshot.paramMap.get('id')
+        "uid":this.AFauth.auth.currentUser.uid
       });
     }
 
@@ -76,7 +76,7 @@ export class InsertarPage implements OnInit {
         "precio": this.precio,
         "tipov":this.tipov,
         "km":this.km,
-        "uid":this._activatedRoute.snapshot.paramMap.get('id')
+        "uid":this.AFauth.auth.currentUser.uid
       });
     }
   }

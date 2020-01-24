@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-input [(ngModel)]="nomusu" placeholder="Correo electrónico"></ion-input>
   <ion-input type="password" [(ngModel)]="pwd" placeholder="Contraseña"></ion-input>
-  <ion-button (click)="OnSubmitLogin()">Login</ion-button>
-  <ion-button [routerLink]="['/registro']">Registrarse</ion-button>
+  <ion-input type="password" [(ngModel)]="pwdr" placeholder="Repita la contraseña"></ion-input>
+  <ion-button (click)="OnSubmitRegister()">Registrarse</ion-button>
 </ion-content>

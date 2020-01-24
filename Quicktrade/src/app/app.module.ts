@@ -11,23 +11,26 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ProductoService } from './services/producto.service';
 import { UsuarioService } from './services/usuario.service';
+import { AuthService } from './services/auth.service';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,    AngularFireAuthModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     ProductoService,
     UsuarioService,
+    AuthService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
