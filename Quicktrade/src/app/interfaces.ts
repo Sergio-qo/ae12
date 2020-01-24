@@ -4,7 +4,7 @@ export interface IUsuario{
 }
 
 export interface IProducto{
-    //"key":string,
+    "key":string, //Comentar si falla
     "nombre" : string,
     "descripcion" : string,
     "categoria" : string,
